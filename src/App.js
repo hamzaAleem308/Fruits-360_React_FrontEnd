@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./App.css";
+import FruitDropdown from "./FruitsList";
 
 const idxToClass = {
   0: "Grape Blue 1",
@@ -100,7 +101,10 @@ function App() {
   return (
     <div className="app">
       <h1>🍇 Fruit Classifier</h1>
-
+      <p>Upload an image of a fruit to get predictions.</p>
+      <p className="note">Note: The model is trained on the Fruits 360 dataset.</p>
+      
+      <FruitDropdown />
       <div className="upload-section">
         {imagePreview && <img src={imagePreview} alt="Preview" className="preview" />}
          <input className="input" type="file" accept="image/*" onChange={handleFileChange} />
