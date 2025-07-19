@@ -78,7 +78,10 @@ function App() {
   };
 
   const handleUpload = async () => {
-    if (!selectedFile) return;
+    if (!selectedFile) {
+      window.alert("Please select a file to upload.");
+      return;
+    }
     const formData = new FormData();
     formData.append("file", selectedFile);
     setLoading(true);
@@ -100,7 +103,7 @@ function App() {
 
   return (
     <div className="app">
-      <h1>🍇 Fruit Classifier</h1>
+    <h1>🍎 AI Fruit Classifier</h1>
       <p>Upload an image of a fruit to get predictions.</p>
       <p className="note">Note: The model is trained on the Fruits 360 dataset.</p>
       
@@ -135,6 +138,9 @@ function App() {
           })}
         </div>
       )}
+      <footer style={{ textAlign: "center", marginTop: "30px", fontSize: "0.85rem", color: "#555" }}>
+        Made with ❤️ using React & ResNet50
+      </footer>
     </div>
   );
 }

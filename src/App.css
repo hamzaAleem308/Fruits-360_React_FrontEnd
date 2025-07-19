@@ -3,7 +3,8 @@
 body {
   margin: 0;
   font-family: 'Inter', sans-serif;
-  background: linear-gradient(to right, #ffecd2, #fcb69f);
+  background: url('https://images.unsplash.com/photo-1502741338009-cac2772e18bc?auto=format&fit=crop&w=1400&q=80') no-repeat center center fixed;
+  background-size: cover;
   min-height: 100vh;
   display: flex;
   justify-content: center;
@@ -12,18 +13,34 @@ body {
 }
 
 .app {
-  background: white;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
   padding: 30px;
-  border-radius: 16px;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
-  max-width: 700px;
+  border-radius: 20px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+  max-width: 750px;
   width: 100%;
+  animation: fadeIn 1s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 h1 {
   text-align: center;
-  color: #444;
-  margin-bottom: 24px;
+  color: #333;
+  margin-bottom: 20px;
+  font-size: 2.5rem;
+}
+
+p.note {
+  font-style: italic;
+  font-size: 0.95rem;
+  color: #666;
+  text-align: center;
+  margin-bottom: 20px;
 }
 
 .upload-section {
@@ -32,30 +49,41 @@ h1 {
   align-items: center;
 }
 
-input[type="file"] {
+.input {
+  padding: 10px;
+  border: 1px solid #aaa;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 300px;
+  box-sizing: border-box;
   margin-bottom: 16px;
+  background-color: #fff;
 }
 
 .preview {
   max-width: 250px;
   margin: 12px 0;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+  border: 2px solid #4CAF50;
 }
 
 button {
   background-color: #4CAF50;
   color: white;
-  padding: 12px 20px;
+  padding: 12px 24px;
   border: none;
-  border-radius: 8px;
+  border-radius: 10px;
   font-size: 1rem;
   cursor: pointer;
-  transition: background 0.3s ease;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3);
 }
 
 button:hover {
-  background-color: #388e3c;
+  background-color: #45a049;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(76, 175, 80, 0.5);
 }
 
 .results {
@@ -63,18 +91,23 @@ button:hover {
 }
 
 .card {
-  background: #f7f7f7;
-  border-radius: 12px;
-  padding: 16px;
-  margin-bottom: 16px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  background: white;
+  border-radius: 16px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
 }
 
 .bar {
-  background: #ddd;
+  background: #eee;
   height: 12px;
   border-radius: 6px;
-  margin: 8px 0;
+  margin: 10px 0;
   overflow: hidden;
 }
 
@@ -86,14 +119,5 @@ button:hover {
 
 .info {
   font-size: 0.95rem;
-  color: #555;
-}
-
-.input {
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  width: 100%;
-  max-width: 300px;
-  box-sizing: border-box;
+  color: #444;
 }
